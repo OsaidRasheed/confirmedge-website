@@ -16,7 +16,7 @@ export function Nav() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass border-b border-white/[0.06] py-3" : "bg-transparent py-5"
+        scrolled ? "acrylic border-b border-[#e5e2de] py-2.5 shadow-sm" : "bg-transparent py-4"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
@@ -24,16 +24,16 @@ export function Nav() {
           <img
             src="/assets/logo.png"
             alt={company.name}
-            className="h-9 w-auto brightness-0 invert transition-transform duration-300 group-hover:scale-105"
+            className="h-8 w-auto transition-transform duration-300 group-hover:scale-105"
           />
         </a>
 
-        <nav className="hidden md:flex items-center gap-1" aria-label="Primary">
+        <nav className="hidden md:flex items-center gap-0.5" aria-label="Primary">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="px-4 py-2 text-sm text-slate-400 hover:text-white rounded-lg hover:bg-white/5 transition-colors"
+              className="px-4 py-2 text-sm text-[#57544f] hover:text-[#1b1a19] rounded-md hover:bg-black/[0.05] transition-colors"
             >
               {link.label}
             </a>
@@ -43,7 +43,7 @@ export function Nav() {
         <div className="hidden md:block">
           <a
             href="#contact"
-            className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg text-sm font-semibold bg-cyan-400 text-slate-950 hover:bg-cyan-300 transition-all hover:shadow-[0_0_28px_rgba(34,211,238,0.4)]"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold bg-accent text-white hover:bg-[#106ebe] transition-colors shadow-sm"
           >
             Start a project
             <ArrowUpRight className="w-4 h-4" />
@@ -51,7 +51,7 @@ export function Nav() {
         </div>
 
         <button
-          className="md:hidden p-2 text-slate-300 hover:text-white"
+          className="md:hidden p-2 text-[#444441]"
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -60,14 +60,14 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden glass border-t border-white/[0.06] mt-3">
+        <div className="md:hidden acrylic border-t border-[#e5e2de] mt-2.5">
           <nav className="px-6 py-4 flex flex-col gap-1" aria-label="Mobile">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 text-sm text-slate-300 hover:text-white rounded-lg hover:bg-white/5"
+                className="px-3 py-3 text-sm text-[#444441] rounded-md hover:bg-black/[0.05]"
               >
                 {link.label}
               </a>
@@ -75,7 +75,7 @@ export function Nav() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center gap-1.5 px-5 py-3 rounded-lg text-sm font-semibold bg-cyan-400 text-slate-950"
+              className="mt-2 inline-flex items-center justify-center gap-1.5 px-5 py-3 rounded-md text-sm font-semibold bg-accent text-white"
             >
               Start a project
               <ArrowUpRight className="w-4 h-4" />
